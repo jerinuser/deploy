@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Bytes Converter</title>
+</head>
+<body>
+    <h1>Convert Bytes to JSON</h1>
+
+    <form method="POST">
+        <label for="byte_data">Enter Bytes Data:</label><br>
+        <textarea name="byte_data" rows="10" cols="100">{{ request.form.get('byte_data', '') }}</textarea><br><br>
+        <input type="submit" value="Convert">
+    </form>
+
+    {% if error_message %}
+        <h2 style="color: red;">{{ error_message }}</h2>
+    {% endif %}
+
+    {% if json_data %}
+        <h2>Converted JSON Data:</h2>
+        <textarea rows="20" cols="100">{{ json_data }}</textarea>
+    {% endif %}
+</body>
+</html>
